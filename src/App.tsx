@@ -8,6 +8,7 @@ import Register from "./widgets/Register/Register";
 import Nav from "./widgets/Nav/Nav";
 import EventSourcePage from "./pages/EventSourcePage";
 
+
 function App() {
   const { setUser, user } = useUser();
   console.log(user);

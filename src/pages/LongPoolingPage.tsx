@@ -1,5 +1,5 @@
 import Chat from "../widgets/Chat/Chat";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import axios from "axios";
 import { Message } from "../types/Message";
 import { useUser } from "../widgets/UserContext/useUser";
@@ -7,7 +7,25 @@ import WriteMessage from "../widgets/WriteMessage/WriteMessage";
 
 export default function LongPoolingPage() {
   const {user} = useUser()
+  const ref = useRef<HTMLTextAreaElement>(null)
   
+  const onResize = useCallback(() => {
+    const height = window.visualViewport?.height
+    if (height) {
+      document.getElementById('root')!.style.height = height + 'px'
+      
+    }
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('resize', onResize)
+
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
+  }, [onResize])
+
+
   const subscribe = useCallback(
     (setMessages: React.Dispatch<React.SetStateAction<Message[]>>) => {
       const fn = async () => {
@@ -32,8 +50,8 @@ export default function LongPoolingPage() {
 
   return (
     <>
-      <Chat subscribe={subscribe}/>
-      <WriteMessage path='message' />
+      <Chat subscribe={subscribe} />
+      <WriteMessage path='message' ref={ref}/>
     </>
   );
 }
