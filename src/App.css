@@ -1,6 +1,6 @@
 body {
   height: 100svh;
-  overflow-y: hidden;
+  overflow-y: clip;
 }
 
 
@@ -8,7 +8,7 @@ body {
   width: 100%;
   height: 100%;
   align-self: flex-start;
-  margin: auto;
+  margin: 0px auto;
 }
 
 main {
