@@ -10,8 +10,7 @@ import EventSourcePage from "./pages/EventSourcePage";
 
 
 function App() {
-  const { setUser, user } = useUser();
-  console.log(user);
+  const { setUser } = useUser();
 
   useEffect(() => {
     const token = localStorage.getItem("token");

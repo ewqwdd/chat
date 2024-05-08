@@ -14,7 +14,9 @@ import { headingMap } from "../../lib/headingMap";
 export default function Nav() {
   const location = useLocation()
   return (
-    <nav>
+    <nav style={{
+      zIndex: 10
+    }}>
       <Popover>
         <PopoverTrigger>
           <Heading

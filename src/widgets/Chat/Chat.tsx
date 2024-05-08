@@ -21,7 +21,7 @@ export default memo(function Chat({ subscribe, height }: ChatProps) {
 
   return (
     <Container as="section" height={height} flexGrow={1} overflowY={"auto"} paddingX={'36px'} gap={1} display={'flex'} flexDirection={'column'}>
-      <Text textAlign={'center'} fontSize={'20px'} opacity={0.8} paddingBottom={7} paddingTop={4}>
+      <Text textAlign={'center'} fontSize={'20px'} opacity={0.8} paddingBottom={7} paddingTop={4} zIndex={0}>
         Welcome to the {headingMap[location.pathname]}
       </Text>
       {messages.map((elem, index) => (
